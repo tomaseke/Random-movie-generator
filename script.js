@@ -22,12 +22,15 @@ function fetchRetry(url) {
     })
 };
 
+function displayDetails(){
+    fetchRetry(getRandomMovie()).then(res => {
+        document.getElementsByTagName("img")[0].src = `http://image.tmdb.org/t/p/w200${res.poster_path}`
+        document.getElementById("name").innerHTML = `Title: ${res.original_title}`
+        document.getElementById("rating").innerHTML = `Rating: ${res.vote_average}`
+    })
+};
 
 // fetchRetry(getRandomMovie()).then(res => console.log(`http://image.tmdb.org/t/p/w185${res.poster_path}`))
 // fetchRetry(getRandomMovie()).then(res => console.log(res))
 
-document.getElementsByTagName("button")[0].addEventListener("click", () => fetchRetry(getRandomMovie()).then(res => {
-    document.getElementsByTagName("img")[0].src = `http://image.tmdb.org/t/p/w185${res.poster_path}`
-    document.getElementsByTagName("div")[0].innerHTML = res.original_title
-    document.getElementsByTagName("div")[1].innerHTML = res.vote_average
-}));
+document.getElementsByTagName("button")[0].addEventListener("click", displayDetails);
