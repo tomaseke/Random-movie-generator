@@ -1,7 +1,10 @@
+let lastIdVar = 0;
 const lastId = () => fetch("https://api.themoviedb.org/3/movie/latest?api_key=c75c2abecfb9f336fcc2d5c8f83a12fb")
 .then(response => response.json())
-.then(response => response.id);
-const randomId = () => Math.floor(Math.random() * 100000);
+.then(response => response.id)
+.then(res => lastIdVar = res);
+lastId();
+function randomId(){return Math.floor(Math.random() * lastIdVar)};
 const getRandomMovie = () => `https://api.themoviedb.org/3/movie/${randomId()}?api_key=c75c2abecfb9f336fcc2d5c8f83a12fb`;
 const lang = "en";
 
