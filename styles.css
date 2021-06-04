@@ -44,6 +44,7 @@ button{
     width: 200px;
     height: 50px;
     margin-top: 100px;
+    font-size: medium;
 }
 
 button:hover{
@@ -52,7 +53,7 @@ button:hover{
 
 
 #pitch{
-    margin-top: 20px;
+    margin-top: 40px;
     text-align: center;
     padding: 20px;
     width: 30vw;
